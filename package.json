@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev:next": "next dev --turbopack",
+    "build:next": "next build",
+    "start:next": "next start",
+    "lint:next": "next lint",
     "dev:sanity": "sanity dev"
   },
   "dependencies": {
     "--legacy-peer-deps": "0.0.1-security.6",
+    "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
     "class-variance-authority": "^0.7.1",
