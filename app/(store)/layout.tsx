@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { draftMode } from "next/headers";
-import { VisualEditing } from "next-sanity";
 
-// import Header from "@/components/Header";
 import { SanityLive } from "@/sanity/lib/live";
-import DisableDraftMode from "@/components/DisableDraftMode";
+import Header from "@/components/Header";
 
 import "../globals.css";
 
@@ -21,21 +18,18 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        {(await draftMode()).isEnabled && (
-          <>
-            <DisableDraftMode />
-            <VisualEditing />
-          </>
-        )}
+        <div className="grid grid-cols-12">
+          <Header className="col-span-full" />
 
-        <main>
-          {/* <Header /> */}
-          {children}
-        </main>
+          <aside className="col-span-2">Aside stuff</aside>
+
+          <main className="col-span-10">
+            {children}
+          </main>
+        </div>
 
         <SanityLive />
       </body>
     </html>
   );
 }
-
