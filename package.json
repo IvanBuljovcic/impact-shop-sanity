@@ -8,13 +8,14 @@
     "start:next": "next start",
     "lint:next": "next lint",
     "dev:sanity": "sanity dev",
-    "typegen": "npx sanity@latest schema extract && npx sanity@latest typegen generate"
+    "typegen": "npx sanity@latest schema extract && npx sanity@latest typegen generate",
+    "dev": "pnpm run /^dev:.*/"
   },
   "dependencies": {
     "--legacy-peer-deps": "0.0.1-security.6",
     "@sanity/icons": "^3.7.0",
-    "@sanity/image-url": "1",
-    "@sanity/vision": "3",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.74.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.475.0",
@@ -23,20 +24,20 @@
     "next-sanity-image": "^6.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sanity": "3",
-    "styled-components": "6",
+    "sanity": "^3.74.1",
+    "styled-components": "^6.1.15",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@eslint/eslintrc": "^3.2.0",
+    "@types/node": "^20.17.17",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "eslint": "^9.20.0",
     "eslint-config-next": "15.1.6",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
   }
 }
