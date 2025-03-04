@@ -14,9 +14,9 @@ const StockIndicator = ({ stock }: StockIndicator) => {
   const numericStock = Number(stock);
   
   const indicatorClassName = cn("rounded-full w-2 h-2", {
-    "bg-green-500": numericStock > 10,
-    "bg-yellow-500": numericStock > 0 && numericStock <= 10,
-    "bg-red-500": numericStock <= 0,
+    "bg-success": numericStock > 10,
+    "bg-warning": numericStock > 0 && numericStock <= 10,
+    "bg-error": numericStock <= 0,
   });
 
   const stockText = (): string => {
