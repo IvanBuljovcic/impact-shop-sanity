@@ -4,6 +4,12 @@ type StockIndicator = {
   stock: number;
 };
 
+export const stockStatusText = {
+  outOfStock: "Out of stock",
+  lowStock: "Low stock",
+  available: "Available",
+};
+
 const StockIndicator = ({ stock }: StockIndicator) => {
   const indicatorClassName = cn("rounded-full w-2 h-2", {
     "bg-green-500": stock > 10,
@@ -13,20 +19,22 @@ const StockIndicator = ({ stock }: StockIndicator) => {
 
   const stockText = (): string => {
     if (stock <= 0) {
-      return "Out of stock";
+      return stockStatusText.outOfStock;
     }
 
     if (stock <= 10) {
-      return "Low stock";
+      return stockStatusText.lowStock;
     }
 
-    return "Availbale";
+    return stockStatusText.available;
   };
 
   return (
-    <div className="flex justify-start items-center gap-1">
-      <div className={indicatorClassName} />
-      <span className="text-sm">{stockText()}</span>
+    <div className="flex justify-start items-center gap-1" data-testid="stock-indicator">
+      <div className={indicatorClassName} data-testid="stock-indicator__bullet" />
+      <span className="text-sm" data-testid="stock-indicator__text">
+        {stockText()}
+      </span>
     </div>
   );
 };

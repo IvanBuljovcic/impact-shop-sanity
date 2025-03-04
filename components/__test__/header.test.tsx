@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Header from "./header";
+import Header from "../header";
 
 vi.mock("next/form", () => ({
   __esModule: true,
