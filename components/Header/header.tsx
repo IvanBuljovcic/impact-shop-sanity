@@ -16,7 +16,7 @@ const Header = ({ className }: HeaderProps) => {
   return (
     <header className={headerClass}>
       <div className="flex flex-wrap justify-between items-center gap-3 w-full">
-        <Link href="/" className="hover:opacity-50 mx-auto sm:mx-0 font-bold text-blue-500 text-2xl cursor-pointer">
+        <Link href="/" className="hover:opacity-50 mx-auto sm:mx-0 font-bold text-blue-500 text-2xl cursor-pointer" data-testid="root-link">
           Impact shop
         </Link>
 
