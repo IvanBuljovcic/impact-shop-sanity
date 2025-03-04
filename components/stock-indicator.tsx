@@ -38,7 +38,7 @@ const StockIndicator = ({ stock }: StockIndicator) => {
   return (
     <div className="flex justify-start items-center gap-1" data-testid="stock-indicator">
       <div className={indicatorClassName} data-testid="stock-indicator__bullet" />
-      <span className="text-sm" data-testid="stock-indicator__text">
+      <span className="text-current text-sm" data-testid="stock-indicator__text">
         {stockText()}
       </span>
     </div>

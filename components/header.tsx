@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import Form from "next/form";
@@ -11,12 +9,16 @@ type HeaderProps = {
 };
 
 const Header = ({ className }: HeaderProps) => {
-  const headerClass = cn("flex flex-wrap justify-between items-center col-span-8 px-4 py-2", className);
+  const headerClass = cn("flex flex-wrap justify-between items-center col-span-8 px-4 py-2 bg-primary", className);
 
   return (
     <header className={headerClass}>
       <div className="flex flex-wrap justify-between items-center gap-3 w-full">
-        <Link href="/" className="hover:opacity-50 mx-auto sm:mx-0 font-bold text-blue-500 text-2xl cursor-pointer" data-testid="root-link">
+        <Link
+          href="/"
+          className="hover:opacity-50 mx-auto sm:mx-0 font-bold text-button-foreground text-2xl transition-opacity cursor-pointer"
+          data-testid="root-link"
+        >
           Impact shop
         </Link>
 
@@ -25,14 +27,14 @@ const Header = ({ className }: HeaderProps) => {
             type="text"
             name="query"
             placeholder="Search for products"
-            className="bg-gray-100 focus:ring-opacity-50 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-4xl text-gray-800"
+            className="bg-secondary-foreground focus:ring-opacity-50 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary-foreground w-full max-w-4xl text-secondary"
           />
         </Form>
 
         <div className="flex flex-1 sm:flex-none items-center space-x-4 mt-4 sm:mt-0">
           <Link
             href="/basket"
-            className="relative flex flex-1 sm:flex-none justify-center sm:justify-start items-center space-x-2 bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded font-bold text-white"
+            className="relative flex flex-1 sm:flex-none justify-center sm:justify-start items-center space-x-2 bg-button hover:bg-blue-700 px-4 py-2 rounded font-bold text-button-foreground"
           >
             <TrolleyIcon className="w-6 h-6" />
 
