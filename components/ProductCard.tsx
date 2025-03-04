@@ -22,11 +22,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Link
       href={`/product/${product.slug?.current}`}
-      className="group flex flex-col bg-white shadow-sm hover:shadow-md p-4 border border-gray-200 rounded-lg overflow-hidden transition-all duration-200"
+      className="group flex flex-col bg-white shadow-sm hover:shadow-md p-4 border border-gray-200 rounded-lg h-full overflow-hidden transition-all duration-200"
       key={product._id}
     >
-      <div className="w-full h-full overflow-hidden">
-        <header>
+      <div className="flex flex-col w-full h-full overflow-hidden">
+        <header className="mb-4">
           {product.image && (
             <div className="relative w-full aspect-square overflow-hidden">
               <Image
@@ -43,7 +43,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <h1 className="text-2xl">{product.name}</h1>
         </header>
 
-        <div className="mt-4">
+        <div className="mt-auto">
           {product.description && (
             <p className="mt-2 text-gray-600 text-sm line-clamp-2">
               {product.description.map((block) =>
