@@ -13,7 +13,7 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
 
   return (
     <div className="flex flex-col items-center bg-gray-100 p-4 min-h-screen align-top">
-      <div className="bg-white shadow-md p-8 rounded-lg w-full max-w-4xl">
+      <div className="p-8 rounded-lg w-full">
         <h1 className="mb-6 font-bold text-3xl text-center">
           {slug
             .split("-")

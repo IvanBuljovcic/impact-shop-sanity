@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 
-import { SanityLive } from "@/sanity/lib/live";
 import Header from "@/components/Header";
 
 import "../globals.css";
+import Aside from "@/components/Aside";
+import { Category } from "@/sanity.types";
+import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,20 +17,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const categories: Category[] = await getAllCategories();
+
   return (
     <html lang="en">
       <body>
         <div className="grid grid-cols-12">
           <Header className="col-span-full" />
 
-          <aside className="col-span-2">Aside stuff</aside>
+          <Aside categories={categories} />
 
-          <main className="col-span-10">
-            {children}
-          </main>
+          <main className="col-span-10">{children}</main>
         </div>
-
-        <SanityLive />
       </body>
     </html>
   );
