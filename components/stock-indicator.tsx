@@ -11,23 +11,29 @@ export const stockStatusText = {
 };
 
 const StockIndicator = ({ stock }: StockIndicator) => {
+  const numericStock = Number(stock);
+  
   const indicatorClassName = cn("rounded-full w-2 h-2", {
-    "bg-green-500": stock > 10,
-    "bg-yellow-500": stock > 0 && stock <= 10,
-    "bg-red-500": stock <= 0,
+    "bg-green-500": numericStock > 10,
+    "bg-yellow-500": numericStock > 0 && numericStock <= 10,
+    "bg-red-500": numericStock <= 0,
   });
 
   const stockText = (): string => {
-    if (stock <= 0) {
+    if (numericStock <= 0) {
       return stockStatusText.outOfStock;
     }
 
-    if (stock <= 10) {
+    if (numericStock <= 10) {
       return stockStatusText.lowStock;
     }
 
     return stockStatusText.available;
   };
+
+  if (Number.isNaN(numericStock)) {
+    return <></>
+  }
 
   return (
     <div className="flex justify-start items-center gap-1" data-testid="stock-indicator">
