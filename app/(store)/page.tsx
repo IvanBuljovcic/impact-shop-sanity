@@ -1,4 +1,4 @@
-import ProductsView from "@/components/ProductsView";
+import ProductsView from "@/components/products-view";
 import { getAllProducts } from "@/sanity/lib/products/getAllProducts";
 
 export default async function Home() {

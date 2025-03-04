@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-import Header from "@/components/Header";
+import Header from "@/components/Header/header";
 
 import "../globals.css";
-import Aside from "@/components/Aside";
+import Aside from "@/components/aside";
 import { Category } from "@/sanity.types";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
 

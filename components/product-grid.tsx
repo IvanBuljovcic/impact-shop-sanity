@@ -3,7 +3,7 @@
 import React from "react";
 import { Product } from "@/sanity.types";
 import { motion, AnimatePresence } from "framer-motion";
-import ProductCard from "./ProductCard";
+import ProductCard from "./product-card";
 
 type ProductGridProps = {
   products: Product[];

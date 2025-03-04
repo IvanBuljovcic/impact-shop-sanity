@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProductGrid from "./ProductGrid";
+import ProductGrid from "./product-grid";
 import { Product } from "@/sanity.types";
 
 interface ProductsViewProps {

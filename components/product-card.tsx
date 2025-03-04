@@ -2,7 +2,7 @@ import { Product } from "@/sanity.types";
 import Link from "next/link";
 import Image from "next/image";
 import { imageUrl } from "@/sanity/lib/imageUrl";
-import StockIndicator from "./StockIndicator";
+import StockIndicator from "./stock-indicator";
 import { cn } from "@/lib/utils";
 
 type ProductCardProps = {
