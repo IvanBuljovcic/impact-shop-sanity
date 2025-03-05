@@ -1,4 +1,4 @@
-import ProductGrid from "@/components/product-grid";
+import ProductGrid from "@/components/Product/product-grid";
 import { searchProductsByName } from "@/sanity/lib/products/searchProductsByName";
 
 type SearchProps = {

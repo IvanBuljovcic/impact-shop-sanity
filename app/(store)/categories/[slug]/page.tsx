@@ -1,4 +1,4 @@
-import ProductsView from "@/components/products-view";
+import ProductsView from "@/components/Product/products-view";
 import { getProductByCategory } from "@/sanity/lib/products/getProductByCategory";
 import React from "react";
 
