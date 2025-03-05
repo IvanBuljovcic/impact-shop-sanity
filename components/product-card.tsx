@@ -1,23 +1,13 @@
-import { Product } from "@/sanity.types";
 import Link from "next/link";
-import Image from "next/image";
-import { imageUrl } from "@/sanity/lib/imageUrl";
+import { Product } from "@/sanity.types";
 import StockIndicator from "./stock-indicator";
-import { cn } from "@/lib/utils";
-import { useState } from "react";
-
-// Tiny base64 placeholder for blur effect
-const PLACEHOLDER_BASE64 = 
-  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAMYAAAAAAIAAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAHRyWFlaAAABZAAAABRnWFhaAAABeAAAABRiWFlaAAABjAAAABRyVFJDAAABoAAAAChnVFJDAAABoAAAAChiVFJDAAABoAAAACh3dHB0AAAByAAAABRjcHJ0AAAB3AAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAFgAAAAcAHMAUgBHAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAABvogAAOPUAAAOQWFlaIAAAAAAAAGKZAAC3hQAAGNpYWVogAAAAAAAAJKAAAA+EAAC2z3BhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLW1sdWMAAAAAAAAAAQAAAAxlblVTAAAAIAAAABwARwBvAG8AZwBsAGUAIABJAG4AYwAuACAAMgAwADEANv/bAEMAFA4PEg8NFBIQEhcUDQwNFxsUEBAWIxsdFxkZGxsdHxsdHR0fHx8mIh4eIx8dHSMjJCUlLDQvLzw0NUBEREpNNf/bAEMBFxcXHhoeNBweNUEmITVRRU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTf/AABEIAAYACgMBIgACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAABf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AlgAH/9k=";
+import ProductImage from "./Product/product-image";
 
 type ProductCardProps = {
   product: Product;
 };
 
 const ProductCard = ({ product }: ProductCardProps) => {
-  const [errorImage, setErrorImage] = useState(false);
-  const errorImageUrl = '/no-image-placeholder.svg';
-  
   const isOutOfStock = () => {
     if (product.stock === null) {
       return true;
@@ -32,53 +22,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
     }
 
     return false;
-  }
-
-  const imageClassName = cn(
-    "object-contain group-hover:scale-105 transition-all duration-300 group-hover:grayscale-0",
-    {
-      grayscale: isOutOfStock(),
-    }
-  );
-
-  const renderImage = () => {
-    const imgUrl = () => {
-      if (errorImage) {
-        return errorImageUrl;
-      }
-
-      if (!product.image) {
-        return errorImageUrl;
-      }
-
-      return imageUrl(product.image).url()
-    }
-
-    return (
-      <div className="relative w-full aspect-square overflow-hidden">
-        <Image
-          className={imageClassName}
-          src={imgUrl()}
-          alt={product.name || "Product image"}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          placeholder="blur"
-          blurDataURL={PLACEHOLDER_BASE64}
-          onError={() => setErrorImage(true)}
-        />
-      </div>
-    )
-  }
+  };
 
   return (
     <Link
+      key={product._id}
       href={`/product/${product.slug?.current}`}
       className="group flex flex-col bg-card shadow-sm hover:shadow-md p-4 border border-card-border rounded-lg h-full overflow-hidden text-card-foreground transition-all duration-200"
-      key={product._id}
     >
       <div className="flex flex-col w-full h-full overflow-hidden">
         <header className="mb-4">
-          {renderImage()}
+          <ProductImage image={product.image} name={product.name} isOutOfStock={isOutOfStock()} />
 
           <StockIndicator stock={product.stock ?? 0} />
           <h1 className="text-current text-2xl">{product.name}</h1>

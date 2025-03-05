@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 
-import Header from "@/components/header";
-
-import "../globals.css";
-import Aside from "@/components/aside";
 import { Category } from "@/sanity.types";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
+import Header from "@/components/header";
+import Aside from "@/components/aside";
+import "../globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
