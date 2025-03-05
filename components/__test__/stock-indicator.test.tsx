@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
-import StockIndicator, { stockStatusText } from "../product-stock-indicator";
+import StockIndicator, { stockStatusText } from "../Product/product-stock-indicator";
 
 describe("Stock indicator", () => {
   test("renders correctly", () => {
