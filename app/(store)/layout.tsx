@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-
 import { Category } from "@/sanity.types";
 import { getAllCategories } from "@/sanity/lib/products/getAllCategories";
+
 import Header from "@/components/header";
 import Aside from "@/components/aside";
+import ReduxProvider from "@/components/redux-provider";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -21,13 +22,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="grid grid-cols-12">
-          <Header className="col-span-full" />
+        <ReduxProvider>
+          <div className="grid grid-cols-12">
+            <Header className="col-span-full" />
 
-          <Aside categories={categories} />
+            <Aside categories={categories} />
 
-          <main className="col-span-10">{children}</main>
-        </div>
+            <main className="col-span-10">{children}</main>
+          </div>
+        </ReduxProvider>
       </body>
     </html>
   );

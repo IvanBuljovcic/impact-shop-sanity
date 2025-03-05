@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Product } from "@/sanity.types";
-import StockIndicator from "../stock-indicator";
+import StockIndicator from "./product-stock-indicator";
 import ProductImage from "./product-image";
 
 type ProductCardProps = {
